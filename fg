@@ -1,0 +1,40 @@
+import time
+def lcm(a, b):
+    m = a * b
+    while a != 0 and b != 0:
+        if a > b:
+            a %= b
+        else:
+            b %= a
+    return m // (a + b)
+def gcd(a,b):
+    while b > 0:
+        c =a%b
+        a = b
+        b = c
+    return a
+
+while 1:
+    try:
+        fir = input('2 или 3 числа ')
+        if fir == 2:
+            x = int(input('a = '))
+            y = int(input('b = '))
+        else:
+            x = int(input('a = '))
+            y = int(input('b = '))
+            z = int(input('c = '))
+        cs = input("НОК или НОД ")
+        if cs == "НОК":
+            if fir == 2:
+                print('НОК:', lcm(x, y))
+            else:
+                print('НОК:', lcm(lcm(x, y),z))
+        else:
+            if fir == 2:
+                print('НОД:', gcd(x, y))
+            else:
+                print('НОД:', gcd(gcd(x, y),z))
+
+    except ValueError:
+        time.sleep(1)
